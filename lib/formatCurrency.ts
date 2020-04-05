@@ -1,3 +1,3 @@
-export const formatCurrency = (cents: number) => {
+export const formatCurrency = () => {
   return '';
 };
