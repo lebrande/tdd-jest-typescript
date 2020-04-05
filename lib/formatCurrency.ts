@@ -1,7 +1,18 @@
-export const formatCurrency = (cents: number) => {
-  const [cent1, cent2, ...rest] = `${cents}`
+export const formatCurrency = (
+  cents: number,
+  decimalPoint: number,
+) => {
+  const reversedArray = `${cents}`
     .split('')
     .reverse();
-  const result = `${rest.reverse().join('')}.${cent2}${cent1}`;
+  const decimalValue = reversedArray
+    .slice(0, decimalPoint)
+    .reverse()
+    .join('');
+  const intValue = reversedArray
+    .slice(decimalPoint)
+    .reverse()
+    .join('');
+  const result = `${intValue}.${decimalValue}`;
   return result;
 };
