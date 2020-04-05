@@ -5,14 +5,10 @@ export const formatCurrency = (
   const reversedArray = `${cents}`
     .split('')
     .reverse();
-  const decimalValue = reversedArray
-    .slice(0, decimalPoint)
-    .reverse()
-    .join('');
-  const intValue = reversedArray
-    .slice(decimalPoint)
-    .reverse()
-    .join('');
+  const [decimalValue, intValue] = [
+    reversedArray.slice(0, decimalPoint),
+    reversedArray.slice(decimalPoint),
+  ].map((array) => array.reverse().join(''));
   const result = `${intValue}.${decimalValue}`;
   return result;
 };
