@@ -15,6 +15,13 @@ const cases = [
     },
     expected: '49.583',
   },
+  {
+    input: {
+      cents: 3,
+      decimalPoint: 3,
+    },
+    expected: '0.003',
+  },
 ];
 
 describe('formatCurrency', () => {
