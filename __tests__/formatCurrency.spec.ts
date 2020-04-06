@@ -22,12 +22,29 @@ const cases = [
     },
     expected: '0.003',
   },
+  {
+    input: {
+      cents: 54,
+      decimalPoint: 0,
+    },
+    expected: '54',
+  },
+  {
+    input: {
+      cents: 843,
+      decimalPoint: -5,
+    },
+    expected: '843',
+  },
 ];
 
 describe('formatCurrency', () => {
-  cases.forEach(({ input, expected }) => {
-    it('returns decimal value', () => {
-      const _input = formatCurrency(input.cents, input.decimalPoint);
+  cases.forEach(({
+    input: { cents, decimalPoint },
+    expected,
+  }) => {
+    it(`returns ${expected} -> cents: ${cents}, decimalPoint: ${decimalPoint} decimalPoint`, () => {
+      const _input = formatCurrency(cents, decimalPoint);
       expect(_input).toBe(expected);
     })
   });

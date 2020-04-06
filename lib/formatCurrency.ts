@@ -2,10 +2,14 @@ export const formatCurrency = (
   cents: number,
   decimalPoint: number,
 ) => {
+  if (!decimalPoint || decimalPoint <= 0) {
+    return `${cents}`;
+  }
+
   const reversedArray = `${cents}`
     .split('')
     .reverse();
-    
+
   const rawDecimalValue = reversedArray
     .slice(0, decimalPoint)
   const decimalValue = Array.apply(null, { length: decimalPoint })
